@@ -4,10 +4,9 @@ pipeline {
     options {
         ansiColor('xterm')
     }
-    agent {
-        docker { image 'node' }
+    tools{
+        nodejs "Node15.7"
     }
-    //tools  
     stages {
        
         stage('Build') {
@@ -19,6 +18,9 @@ pipeline {
             steps {
                 sh 'npm test'
                 sh 'npm ci-test'
+            }
+            post{
+                archive 'build/libs/*.jar'
             }
         }
     }
