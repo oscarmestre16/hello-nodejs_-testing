@@ -24,7 +24,7 @@ pipeline {
                     step([$class: "TapPublisher", testResults: "test.tap"])
                     step([
                         $class: 'CloverPublisher',
-                        cloverReportDir: './coverage',
+                        cloverReportDir: 'coverage',
                         cloverReportFileName: 'clover.xml',
                         healthyTarget: [methodCoverage: 70, conditionalCoverage: 80, statementCoverage: 80],
                         unhealthyTarget: [methodCoverage: 50, conditionalCoverage: 50, statementCoverage: 50],
