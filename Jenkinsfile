@@ -19,6 +19,16 @@ pipeline {
                 sh 'npm run test'
                 sh 'npm run ci-test'
             }
+            post{
+                always{
+                    junit ''
+                    step([
+                        $class:'CloverPublisher',
+                        cloverReportDir: 'build/coverage',
+                        cloverReportFileName: 'build/logs/clover.xml'
+                    )]
+                }
+            }
         }
     }
 }
