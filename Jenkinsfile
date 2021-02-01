@@ -4,20 +4,18 @@ pipeline {
     options {
         ansiColor('xterm')
     }
-    tools{
-        nodejs "Node15.7"
-    }
+    
     stages {
        
         stage('Build') {
             steps {                
-                sh 'npm install'
+                sh 'yarn'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
-                sh 'npm ci-test'
+                sh 'yarn run test'
+                sh 'yarn run ci-test'
             }
             post{
                 archive 'build/libs/*.jar'
