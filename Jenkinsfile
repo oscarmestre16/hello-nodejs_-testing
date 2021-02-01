@@ -4,6 +4,9 @@ pipeline {
     options {
         ansiColor('xterm')
     }
+    agent {
+        docker { image 'node' }
+    }
     //tools  
     stages {
        
@@ -14,6 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'cpm test'
+                sh 'npm test'
                 sh 'npm ci-test'
         }
+    }
