@@ -10,9 +10,6 @@ pipeline {
             steps {                
                 sh './yarn'
             }
-            post{
-                archiveArtifact 'build/libs/*.jar'
-            }
         }
         stage('Test') {
             steps {
