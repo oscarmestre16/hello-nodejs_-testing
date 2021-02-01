@@ -5,7 +5,7 @@ pipeline {
         ansiColor('xterm')
     }
     tools{
-       Nodejs 'Nodejs'
+       nodejs 'NodeJS'
     }
     stages {
        
@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npm test'
-                sh 'npm ci-test'
+                sh 'npm run test'
+                sh 'npm run ci-test'
             }
         }
     }
