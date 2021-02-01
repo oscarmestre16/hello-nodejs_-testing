@@ -4,15 +4,16 @@ pipeline {
     options {
         ansiColor('xterm')
     }
+    //tools  
     stages {
        
         stage('Build') {
             steps {                
-                sh 'yarn'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'yarn test'
-                sh 'yarn ci-test'
+                sh 'cpm test'
+                sh 'npm ci-test'
         }
