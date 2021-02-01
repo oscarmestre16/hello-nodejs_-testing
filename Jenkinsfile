@@ -8,11 +8,11 @@ pipeline {
        
         stage('Build') {
             steps {                
-                sh './yarn'
+                sh 'yarn'
             }
         }
         stage('Test') {
             steps {
-                sh './yarn test'
-                sh './yarn ci-test'
+                sh 'yarn test'
+                sh 'yarn ci-test'
         }
