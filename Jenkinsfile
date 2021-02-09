@@ -33,5 +33,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Security') {
+            steps {
+                sh 'trivy filesystem .'
+            }
+            post {
+                always {
+                    recordIssues enabledForFailure: true, tool: trivy(pattern: 'trivy-results.json')
+                }
+            }
+
+        }
+
     }
 }
