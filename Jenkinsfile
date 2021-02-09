@@ -7,7 +7,7 @@ pipeline {
     stages {       
         stage('Security') {
             steps {
-                sh 'trivy filesystem --format json --output trivy-results.json .'
+                sh 'trivy filesystem -f json -o trivy-fs.json .'                
             }
             post {
                 always {
